@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, send_file
 from geopy.geocoders import Nominatim
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 
 ################################################################################
@@ -16,6 +17,17 @@ app = Flask(__name__)
 
 # Get the API key from the '.env' file
 load_dotenv()
+API_KEY = os.getenv('API_KEY')
+
+matplotlib.use('agg')
+plt.style.use('ggplot')
+
+my_loader = jinja2.ChoiceLoader([
+    app.jinja_loader,
+    jinja2.FileSystemLoader('data'),
+])
+
+app.jinja_loader = my_loader
 
 pp = PrettyPrinter(indent=4)
 
