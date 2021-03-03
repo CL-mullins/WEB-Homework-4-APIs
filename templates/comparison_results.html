@@ -14,6 +14,13 @@
         TODO: Add the temperature, description, and min & max temperature below.
         Replace 'F' with the appropriate units.
     #}
+
+    <ul>
+        <li>Descriptions: {{ description }} </li>
+        <li>Temperature: {{ temperature }}</li>
+        <li>Min: {{ min_temp }}° {{ units_letter }}</li>
+        <li>Max: {{ max_temp }}° {{ units_letter }}</li>
+    </ul>
     <p>
         It is [NUM_DEGREES] [UNITS] [WARMER/COLDER] in [CITY1] than in [CITY2] today.
     </p>
